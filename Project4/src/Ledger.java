@@ -55,7 +55,7 @@ public class Ledger {
     public Ledger(int size) {
         //Checks to make sure the size is valid
         if (size <= 0) {
-            throw new IllegalArgumentException("Invalid Size");
+            throw new IllegalArgumentException("Invalid size");
         }
         this.size = size;
         this.numEntries = 0;
@@ -109,7 +109,7 @@ public class Ledger {
      */
     public String getDescriptionAt(int i) {
         if (i < 0 || i >= numEntries) {
-            throw new IllegalArgumentException("Invalid date");
+            throw new IllegalArgumentException("Invalid index");
         }
         return entries[i].getDescription();
     }
@@ -295,6 +295,11 @@ public class Ledger {
             if (i < numEntries - 1) {
                 result = result + "\n";
             }
+        }
+
+        //Adds extra space at the end of result if its not base constructor
+        if(result != "Date,Description,Amount,Balance\n") {
+            result += "\n";
         }
         return result;
     }

@@ -160,13 +160,28 @@ public class LedgerDate implements Comparable<LedgerDate> {
     }
 
     /**
-     * Puts the dat into the correct format
+     * Puts the date into the correct format
      * 
      * @return Returns the date in the correct formatting
      */
     @Override
     public String toString() {
-        return getMonth() + "/" + getDay() + "/" + getYear();
+        String stringMonth = "";
+        String stringDay = "";
+
+        if(getMonth() < 10) {
+            stringMonth += "0" + getMonth();
+        } else {
+            stringMonth += "" + getMonth();
+        }
+
+        if(getDay() < 10) {
+            stringDay += "0" + getDay();
+        } else {
+            stringDay += "" + getDay();
+        }
+
+        return stringMonth + "/" + stringDay + "/" + getYear();
     }
 
     /**

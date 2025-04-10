@@ -13,6 +13,11 @@ public class LedgerEntry implements Comparable<LedgerEntry> {
     private LedgerDate date;
 
     /**
+     * The raw date of the Ledger entry
+     */
+    private String rawDate;
+
+    /**
      * The description of the Ledger entry 
      */
     private String description;
@@ -36,6 +41,23 @@ public class LedgerEntry implements Comparable<LedgerEntry> {
 
         //Creates the Ledger date and uses it from LedgerDate class
         this.date = new LedgerDate(month, day, year);
+
+        //Creates a string of the date in the format of year/month/day without formatting
+        this.rawDate = "" + year;
+
+        //Checks if month is lower than 10 if so adds a 0
+        if(month < 10) {
+            rawDate += "0" + month;
+        } else {
+            rawDate += "" + month;
+        }
+
+        //Checks if day is lower than 10 if so adds a 0
+        if(day < 10) {
+            rawDate += "0" + day;
+        } else {
+            rawDate += "" + day;
+        }
 
         //Checks if the description is null 
         if (description == null) {
@@ -89,7 +111,7 @@ public class LedgerEntry implements Comparable<LedgerEntry> {
      */
     @Override
     public String toString() {
-        return date.toString() + "," + description + "," + amount;
+        return rawDate.toString() + "," + description + "," + amount;
     }
 
     /**

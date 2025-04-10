@@ -115,7 +115,9 @@ public class LedgerTest {
         ledger2.addEntry(1, 3, 2030, "Groceries", -100);
         assertFalse(ledger1.equals(ledger2), "Ledgers with different entries should not be equal");
 
+        ledger.addEntry(3, 3, 2033, "Dinner out", -100);
         ledger.addEntry(3, 3, 2033, "Dinner out - friend's portion", 30);
+
         assertEquals(2, ledger.getNumEntries());
         assertEquals(30, ledger.getSize());
         assertEquals(-70, ledger.getBalance());
