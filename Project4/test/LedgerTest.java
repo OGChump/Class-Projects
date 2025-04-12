@@ -117,7 +117,6 @@ public class LedgerTest {
 
         ledger.addEntry(3, 3, 2033, "Dinner out", -100);
         ledger.addEntry(3, 3, 2033, "Dinner out - friend's portion", 30);
-
         assertEquals(2, ledger.getNumEntries());
         assertEquals(30, ledger.getSize());
         assertEquals(-70, ledger.getBalance());

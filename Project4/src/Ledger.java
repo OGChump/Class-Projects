@@ -298,7 +298,7 @@ public class Ledger {
         }
 
         //Adds extra space at the end of result if its not base constructor
-        if(result != "Date,Description,Amount,Balance\n") {
+        if(!result.equals("Date,Description,Amount,Balance\n")) {
             result += "\n";
         }
         return result;
